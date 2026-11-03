@@ -60,5 +60,5 @@ Python 3.10+ · PyTorch · TorchVision · TorchMetrics · pandas · Pillow · tq
 
 - [FloraLens](https://github.com/abderrahmenex86/FloraLens) runs this model on
   Android
-- [Flora](https://github.com/abderrahmenex86/flora) for plant classification
-- [Segmenti](https://github.com/abderrahmenex86/segmenti) for disease segmentation
+- [Flora](https://github.com/abderrahmenex86/Plant-Species-Classifier) for plant classification
+- [Segmenti](https://github.com/abderrahmenex86/Plant-Disease-Segmentation) for disease segmentation
