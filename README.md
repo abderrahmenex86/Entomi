@@ -20,7 +20,7 @@ runs on the phone.
 ## Run it
 
 ```bash
-git clone https://github.com/abderrahmeneex86/pesti
+git clone https://github.com/abderrahmenex86/pesti
 cd pesti
 pip install -r requirements.txt
 ```
