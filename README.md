@@ -25,7 +25,6 @@ _Top-5 output from the hierarchical MobileNetV3-Small checkpoint on an IP102 val
 - [Project layout](#project-layout)
 - [Related projects](#related-projects)
 - [Stack](#stack)
-- [Limits](#limits)
 
 ## Results
 
@@ -240,18 +239,3 @@ Export flags:
 | pandas | 3.0.2 | `requirements.txt` asks for 2.0+ |
 | Pillow | 12.2.0 | `requirements.txt` asks for 10.0+ |
 | tqdm | 4.67.3 | `requirements.txt` asks for 4.66+ |
-
-## Limits
-
-- The repository ships neither IP102 nor weights. A fresh clone can train, but it cannot run inference until it produces `pest_model.pth` or supplies a compatible checkpoint.
-- The flat MobileNetV3-Large path has no committed reference run. The only published numbers come from the older hierarchical MobileNetV3-Small run.
-- The hierarchical checkpoint assumes its order and family heads were trained with the sorted unique labels from `taxonomy.json` (8 orders, 47 families). If the original training used a different index order, the joint ranking would be misaligned. The species head is unaffected.
-- Joint probabilities from the hierarchical model are the product of three softmaxes. They rank predictions but are not calibrated confidence scores.
-- Dynamic quantization only covers `nn.Linear` layers. On the convolutional backbone the size reduction is 1.02x for the Small model and 1.28x for the Large model.
-- The corrupted-image fallback advances to the next index instead of dropping the file, so the epoch can contain a duplicate sample. A fully corrupt shard would recurse until it finds a decodable image.
-- The 102 classes are long-tailed. Rare species have little training signal, and there is no rejection path for insects outside the IP102 taxonomy.
-- `train.py` evaluates the validation split only. The dataset class has a `test` split, but no script evaluates it.
-- The training loop has no early stopping and no mixed precision. CPU training works but is much slower than CUDA.
-- Batch size 256 at 224 px is what `train.py` uses. Reduce it in `train.py` if the GPU cannot hold that batch.
-- The run histories do not record the GPU model. I cannot state which card produced the hierarchical run.
-- IP102 is free for academic use only. Review the dataset terms before using the weights or the code commercially.
