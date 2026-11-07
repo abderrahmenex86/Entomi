@@ -1,8 +1,7 @@
-# Pesti
+# Entomi
 
-An insect and pest classifier trained on IP102 with MobileNetV3-Large. It
-produces the weights that [FloraLens](https://github.com/abderrahmenex86/FloraLens)
-runs on the phone.
+An insect and pest classifier trained on IP102 with MobileNetV3-Large, with a
+quantised export for on-device inference.
 
 ## What it does
 
@@ -15,13 +14,13 @@ runs on the phone.
 - Reports top-1, top-5, and macro F1 on the validation split, and writes them to
   `training_history.json`.
 - Exports the best checkpoint to `pest_model.pth`, plus a quantised ONNX model
-  through `quantize.py` for the mobile app.
+  through `quantize.py` for mobile deployment.
 
 ## Run it
 
 ```bash
-git clone https://github.com/abderrahmenex86/pesti
-cd pesti
+git clone https://github.com/abderrahmenex86/Entomi
+cd Entomi
 pip install -r requirements.txt
 ```
 
@@ -58,7 +57,7 @@ Python 3.10+ · PyTorch · TorchVision · TorchMetrics · pandas · Pillow · tq
 
 ## Related
 
-- [FloraLens](https://github.com/abderrahmenex86/FloraLens) runs this model on
-  Android
-- [Flora](https://github.com/abderrahmenex86/Plant-Species-Classifier) for plant classification
-- [Segmenti](https://github.com/abderrahmenex86/Plant-Disease-Segmentation) for disease segmentation
+- [Flora](https://github.com/abderrahmenex86/Flora) for plant species
+  classification
+- [Lesioni](https://github.com/abderrahmenex86/Lesioni) for disease
+  segmentation
