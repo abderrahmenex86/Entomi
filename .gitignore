@@ -11,6 +11,7 @@ setup.py
 setup.sh
 *.pt
 *.txt
+!requirements.txt
 
 node_modules/
 
